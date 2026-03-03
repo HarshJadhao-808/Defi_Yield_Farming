@@ -5,14 +5,16 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Hcoin is ERC20{
     address owner;
-    mapping(address => bool) public Users;
+    mapping(address => bool) public User;
 
     constructor() ERC20("Hcoin","HC") {
         owner = msg.sender;
     }
 
     function GiveHc (address userAddress) external {
-        require(Users[userAddress] == false );
+        require(User[userAddress] == false ,"Already Received");
+        User[userAddress] = true;
+        _mint(userAddress ,10);
     }
 
 }
