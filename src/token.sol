@@ -11,10 +11,11 @@ contract Hcoin is ERC20{
         owner = msg.sender;
     }
 
-    function GiveHc (address userAddress) external {
-        require(User[userAddress] == false ,"Already Received");
-        User[userAddress] = true;
-        _mint(userAddress ,10);
+    function GiveHc () external {
+        require(User[msg.sender] == false ,"Already Received");
+        User[msg.sender] = true;
+        _mint(msg.sender ,10 ether);
     }
 
 }
+

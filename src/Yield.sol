@@ -9,7 +9,7 @@ contract YToken is ERC20{
     constructor(address setAddress) ERC20("yield","YTC") {
        owner = msg.sender;
         stakeAddress = setAddress;
-        _mint(msg.sender,100);
+        _mint(msg.sender,100 ether);
     }
 
     function giveYield(address userAddress , uint256 amount) external {
